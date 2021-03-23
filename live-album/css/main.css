@@ -1,0 +1,377 @@
+@charset "UTF-8";
+
+ /*デバッグ用スタイル */
+/** {*/
+/*  border: 1px solid lime;*/
+/*}*/
+
+body {
+  margin: 0;
+}
+
+/**
+ * -------------------
+ * 投稿写真の表示テンプレート
+ * -------------------
+ */
+#photo-item {
+  display: none;
+}
+
+/**
+ * -----------------
+ * アルバム作成モーダル
+ * -----------------
+ */
+.custom-file-label::after {
+  content: "参照";
+}
+
+#create-album__help {
+  display: none;
+}
+
+/**
+ * -----------------
+ * ユーザ設定モーダル
+ * -----------------
+ */
+#user-settings__help {
+  display: none;
+}
+
+/**
+ * -------------------
+ * 最初のローディング表示
+ * -------------------
+ */
+
+#loading {
+  display: block;
+  position: relative;
+  height: 100vh;
+}
+
+.initial-loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -23px;
+  font-size: 46px;
+  animation: spin 2s linear infinite;
+}
+
+/* 回転するアニメーション */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * ----------
+ * 写真投稿時の通知メッセージ
+ * ----------
+ */
+#submit-toast {
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+  margin: 0 auto;
+}
+
+/**
+ * ----------
+ * ログイン画面
+ * ----------
+ */
+.logo-mark {
+  margin: 100px auto;
+  text-align: center;
+}
+
+/* 画像サイズよりウィンドウ幅が小さい場合は、ウィンドウ幅に合わせて画像を縮小する */
+@media(max-width: 480px) {
+  .log-mark {
+    width: auto;
+  }
+  .logo-mark img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+#login__help {
+  display: none;
+}
+
+/**
+ * ----------
+ * アルバム画面（ヘッダー）
+ * ----------
+ */
+.header {
+  /*ヘッダ固定 */
+  position: fixed;
+  /* 画面上部 */
+  top: 0px;
+  /* 最背面にする */
+  z-index: 99;
+  /* fixで要素を固定したので100%でウィンドウ幅いっぱいに調整 */
+  width: 100%;
+}
+
+.logo-mark-min {
+  margin: 0 12px;
+}
+
+.logo-min-text {
+  text-decoration: none;
+}
+
+.logo-min-text:hover {
+  text-decoration: none;
+}
+
+#album-list-container {
+  display: flex;
+  align-items: center;
+}
+
+#album-list {
+  width: 200px;
+}
+
+#album-delete li a {
+  color: red;
+}
+
+ul.navbar-nav {
+  text-align: right;
+}
+
+/**
+ * ----------
+ * アルバム画面（写真一覧コンテンツ）
+ * ----------
+ */
+.container {
+  margin-top: 100px;
+}
+
+.initial-display {
+  margin: 100px auto;
+  text-align: center;
+}
+
+/* 画像サイズよりウィンドウ幅が小さい場合は、ウィンドウ幅に合わせて画像を縮小する */
+@media(max-width: 400px) {
+  .initial-display {
+    width: auto;
+  }
+  .initial-display img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.photo-content {
+  position: relative;
+  margin: 10px auto;
+  width: 200px;
+  height: auto;
+}
+
+.photo-content:hover #photo-delete {
+  display: block;
+}
+
+#photo-delete {
+  display: none; 
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: white;
+  background-color: gray;
+  opacity: 0.8;
+  text-align: center;
+}
+
+#photo-delete:hover {
+  opacity: 1;
+}
+
+.photo-title {
+  font-size: 14px;
+}
+
+.photo-image {
+  /* カードに収めるため高さを指定 */
+  height: 200px;
+  /* 異なる写真サイズを許容するため設定（containは余白が出るためcover） */
+  object-fit: cover;
+}
+
+/**
+ * -----------------
+ * 写真投稿フォーム部品
+ * -----------------
+ */
+.photo-post-icon {
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: pink;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+  text-align: center;
+  line-height: 50px;
+
+  /* カメラマークのスタイル */
+  color: #007BFF;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.photo-post-icon:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.close-icon {
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: pink;
+  position: fixed;
+  right: 20px;
+  bottom: 110px;
+  z-index: 1;
+  text-align: center;
+  line-height: 50px;
+
+  /* 閉じるマークのスタイル */
+  color: #007BFF;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.close-icon:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/**
+ * -----------------
+ * 写真投稿フォーム
+ * -----------------
+ */
+#photo-post-form {
+  display: none;
+  width: 450px;
+  height: 100px;
+  background-color: pink;
+  /* 半透明にしたいけど、内包する要素も影響してしまうので0.9くらい */
+  opacity: 0.9;  
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+/* フォームサイズよりウィンドウ幅が小さい場合は、ウィンドウ幅に合わせてフォームを縮小する */
+@media(max-width: 450px) {
+  #photo-post-form {
+    width: 100%;
+  }
+  /* 部品が重ならないよう縮小 */
+  .photo-select__icon, .photo-preview, #comment-form {
+    max-width: 60%;
+  }
+}
+
+.form-container {
+  display: flex;
+  width: 450px;
+  height: 100px;
+  justify-content: flex-start;
+}
+
+.photo-select {
+  width: 100px;
+}
+
+.photo-select__icon {
+  margin-left: 40px;
+  line-height: 100px;
+
+  /* カメラマークのスタイル */
+  color: #007BFF;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.photo-select__icon:hover {
+   opacity: 0.5;
+   cursor: pointer;
+}
+
+#photo-select__form {
+   display: none;  /* 本来のファイル選択フォームは非表示に */
+}
+
+.photo-preview {
+  position: relative;
+  display: none;
+  width: 100px;
+}
+
+#preview {
+  margin: 10px;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+#close-preview {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  color: darkgray;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+#close-preview:hover {
+   opacity: 1;
+   cursor: pointer;
+}
+.comment-form {
+  width: 400px;
+  height: 50px;
+  margin: auto 0;
+  opacity: 1;
+}
+
+.input-group {
+  vertical-align: middle;
+  line-height: 100px;
+}
+
+#comment-form__text::placeholder {
+  font-size: 15px;
+}
+
+#comment-form {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
