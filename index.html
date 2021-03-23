@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>PAYA's Portfolio</title>
+    <link rel="stylesheet" href="main.css" />
+    </head>
+  <body>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-sm navbar-light bg-warning">
+
+        <!-- ホームへ戻るリンク。ロゴなどを置くが一旦未設定 -->
+        <a href="#" class="navbar-brand"></a>
+
+        <!-- 横幅が狭い時に出るハンバーガーボタン -->
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="nav-bar" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#portfolio" class="nav-link">portfolio</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="main_wrapper">
+      <div class="main_vidual">
+        <!-- ポートフォリオタイトル -->
+        <div class="main-title">
+          PAYA's <br class="br-sp" />Portfolio
+        </div>
+      </div>
+      <!-- Bootstrapのグリッドでレスポンシブデザイン -->
+      <div class="container-fluid">
+
+        <!-- 自己紹介コンテンツ -->
+        <div id="about" class="contents">
+          <div class="contents_title text-center">
+            About
+          </div>
+          <div class="contents_title_upplement text-center">
+            - 自己紹介 -
+          </div>
+          <div class="contents_body row">
+            <table class="table table-bordered col-sm-4">
+              <tr>
+                <th>名前</th>
+                <td class="text-left">ぱや</td>
+              </tr>
+              <tr>
+                <th>スキル</th>
+                <td class="text-left">
+                  <ul>
+                    <li>Java</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>jQuery</li>
+                    <li>Bootstrap</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>趣味</th>
+                <td class="text-left">散歩</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- 制作物コンテンツ -->
+        <div id="portfolio" class="contents">
+          <div class="contents_title text-center">
+            Portfolio
+          </div>
+          <div class="contents_title_upplement text-center">
+            - 制作物 -
+          </div>
+          <div class="contents_body text-center">
+            <div class="card mx-auto mb-4">
+              <a href="#">
+                <img src="./img/logo.png" alt="作品画像">
+              </a>
+              <div class="card-footer">
+                Live! Album（写真投稿サイト）
+              </div>
+            </div>
+            <div class="card mx-auto mb-4">
+              <a href="https://codepen.io/4paya6/pen/vYyVbEg" target="_blank">
+                <img src="./img/LP(編集).jpg" alt="作品画像">
+              </a>
+              <div class="card-footer">
+                LP（基本コンポーネント実装練習）
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- お問い合わせコンテンツ -->
+        <div id="contact" class="contents">
+          <div class="contents_title text-center">
+            CONTACT
+          </div>
+          <div class="contents_title_upplement text-center">
+            - お問い合わせ -
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <!-- 中央寄せのため設定 -->
+            </div>
+            <div class="contents_body col-sm-9">
+              <p>作品に関するご感想などは下記よりお問い合わせください。</p>
+              <form>
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">お名前</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" name="firstname">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">メールアドレス</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" name="firstname">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">メッセージ本文</label>
+                  <div class="col-sm-6">
+                    <textarea class="form-control" name="content" rows="10"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="offset-sm-3 col-sm-6">
+                    <button type="submit" class="btn btn-block">送信（※準備中）</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <small>Copyright&copy; PAYA's Portfolio Site All RIghts Reserved.</small>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+    <!-- スムーズスクロールのために追加 -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
