@@ -385,7 +385,7 @@ const loadAlbumView = () => {
   // ※データ取得の時間を考慮して1秒後に処理を実行
   setTimeout(() => {
     showAlbum(sampleAlbumName);
-  }, 2000);
+  }, 1000);
 };
 
 /**
