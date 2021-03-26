@@ -1,6 +1,9 @@
 // 初期表示用のデフォルト画像
 const initialDisplayURL = 'img/initial-display.png';
 
+// サンプルアルバム名
+const sampleAlbumName = 'サンプルアルバム';
+
 // 現在表示しているアルバム名
 let currentAlbumName = null;
 
@@ -66,8 +69,10 @@ const switchWindow = () => {
   const windowWidth = window.innerWidth;
   if (windowWidth < 576) {
     $('#photo-list').attr('class', 'row justify-content-center');
+    // $('#photo-list').attr('class', 'justify-content-center');
   } else {
     $('#photo-list').attr('class', 'row justify-content-start');
+    // $('#photo-list').attr('class', 'justify-content-start');
   }
 };
 
@@ -184,10 +189,28 @@ const showAlbumList = (albumsSnapshot) => {
   // 新しく作成したアルバムから表示する
   // ※作成順に取得しているのでreverseで逆から処理する
   albumsSnapshotKey.reverse().forEach((albumSnapshotKey) => {
+
     const albumListOption = $('<option>', {
       class: 'list-item',
       value: `${albumSnapshotKey}`,
     }).text(albumSnapshotKey);
+
+    // 新緑の京都を選択済にするため処理を分岐
+    // let albumListOption = '';
+    // if (albumSnapshotKey === '新緑の京都') {
+    //   albumListOption = $('<option>', {
+    //     class: 'list-item',
+    //     value: `${albumSnapshotKey}`,
+    //     defaultSelected: 'true',
+    //   }).text(albumSnapshotKey);
+    //   console.log('新緑の京都の分岐処理');
+    // } else {
+    //   albumListOption = $('<option>', {
+    //     class: 'list-item',
+    //     value: `${albumSnapshotKey}`,
+    //   }).text(albumSnapshotKey);
+    // }
+
     albumListOption.on('click', () => {
       // ハンバーガーメニューが開いている場合は閉じる
       $('#nav-bar').collapse('hide');
@@ -283,6 +306,11 @@ const showAlbum = (albumTitle) => {
  */
 const deleteAlbum = (albumName) => {
 
+  // 初期ルームは削除不可
+  if (albumName === sampleAlbumName) {
+    throw new Error(`${sampleAlbumName}ルームは削除できません`);
+  }
+
   // 現在表示しているアルバム名をクリア
   currentAlbumName = null;
 
@@ -333,7 +361,7 @@ const loadAlbumView = () => {
       }
     }
   });
-
+  
   // アルバム一覧を取得してさらに変更を監視（作成順に取得）
   const albumsRef = firebase.database().ref('albums').orderByChild('createdAt');
   // 過去に登録したイベントハンドラを削除
@@ -350,8 +378,14 @@ const loadAlbumView = () => {
 
   });
   
-  // 初期表示用画像を表示
-  showInitialDisplay();
+  // // 初期表示用画像を表示
+  // showInitialDisplay();
+
+  // サンプルアルバムを表示（初回のみ）
+  // ※データ取得の時間を考慮して1秒後に処理を実行
+  setTimeout(() => {
+    showAlbum(sampleAlbumName);
+  }, 1000);
 };
 
 /**
