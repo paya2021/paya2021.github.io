@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- 自作のCSSファイル読み込み -->
+        <link rel="stylesheet" href="main.css" />
+
+        <title>サンプル実装</title>
+        <!-- Vue.js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+      <!-- トップラッパー -->
+      <div class="top-wrapper">
+        <div class="center">
+          <h1>サンプル<br>実装</h1>
+          <p>- 基本コンポーネント紹介 -</p>
+        </div>
+      </div>
+      <!-- メインラッパー（ここから） -->
+      <div class="container-fluid main_wrapper">
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>データバインディング</h2>
+            <p>
+              フォームに入力した文字が即時表示されます。<br>
+              Vue.jsを使って実装しています。
+            </p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <div id="example">
+              <input type="text" v-model="inputContents" placeholder="Please edit here !">
+              <p>INPUT CONTENT↓</p>
+              <p>{{ inputContents }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>画像取得</h2>
+            <p>Dog apiを使ってランダムに画像を取得し、3秒ごとに画像を切り替える処理を実装しています。</p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <img id="dog"
+              src="https://drive.google.com/uc?export=view&id=1egnhufZab1GgnJJfo4s1xfzxkI1uoTt4"
+              alt="犬の画像"
+              name="dog"
+            >
+          </div>
+        </div>
+
+        <!-- サブラッパー（基本コンポーネントまとめ） -->
+        <div class="sub_wrapper">
+          <h2 class="text-center">- 基本コンポーネント -</h2>
+
+          <div class="row">
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">タブ</h3>
+              <div class="basic_contents_item upper">
+                <div class="tabWrapper">
+                  <input id="tab_01" type="radio" name="tabItem" class="tabRadio" checked="checked" />
+                  <label class="tabLabel" for="tab_01">TAB1</label>
+                  <div class="tabContent">
+                    CONTENT1
+                  </div>
+                  <input id="tab_02" type="radio" name="tabItem" class="tabRadio" />
+                  <label class="tabLabel" for="tab_02">TAB2</label>
+                  <div class="tabContent">
+                    CONTENT2
+                  </div>
+                  <input id="tab_03" type="radio" name="tabItem" class="tabRadio" />
+                  <label class="tabLabel" for="tab_03">TAB3</label>
+                  <div class="tabContent">
+                    CONTENT3
+                  </div>
+                  <input id="tab_04" type="radio" name="tabItem" class="tabRadio" />
+                  <label class="tabLabel" for="tab_04">TAB4</label>
+                  <div class="tabContent">
+                    CONTENT4
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">アコーディオン</h3>
+              <div class="basic_contents_item uppr">
+                <div class="accordionWrapper">
+                  <input type="checkbox" id="accordion_01" class="accordionCheck" />
+                  <label for="accordion_01" class="accordionLabel">ACCORDION1</label>
+                  <div class="accordionContent">
+                    CONTENT1
+                  </div>
+                  <input type="checkbox" id="accordion_02" class="accordionCheck" />
+                  <label for="accordion_02" class="accordionLabel">ACCORDION2</label>
+                  <div class="accordionContent">
+                    CONTENT2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">横スクロール</h3>
+              <div class="basic_contents_item central">
+                <ul class="scroll_container">
+                  <li class="scroll_content img_bg_01">
+                    <div>CONTENT1</div>
+                  </li>
+                  <li class="scroll_content img_bg_02">
+                    <div>CONTENT2</div>
+                  </li>
+                  <li class="scroll_content img_bg_03">
+                    <div>CONTENT3</div>
+                  </li>
+                  <li class="scroll_content img_bg_04">
+                    <div>CONTENT4</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">モーダルウィンドウ</h3>
+              <div class="basic_contents_item central">
+                <!-- モーダルウィンドウ表示ボタン -->
+                <button id="openModal">OPEN MODAL</button>
+
+                <!-- モーダルウィンドウ -->
+                <div id="modalArea" class="modalArea">
+                  <div id="modalBg" class="modalBg"></div>
+                  <div class="modalWrapper">
+                    <div class="modalContents">
+                      <h1>MODAL TITLE </h1>
+                      <p>Modal contents.</p>
+                    </div>
+                    <div id="closeModal" class="closeModal">
+                      ×
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">スライドメニュー</h3>
+              <div class="basic_contents_item central">
+                <!-- スライドメニュー表示ボタン -->
+                <button id="openSlideMenu">OPEN SLIDE NEMU</button>
+                <!-- スライドメニュー -->
+                <div class="slideMenuList">
+                  <ul>
+                    <li>MENU1</li>
+                    <li>MENU2</li>
+                    <li>MENU3</li>
+                    <li>MENU4</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">ドロップダウンメニュー</h3>
+              <div class="basic_contents_item upper">
+                <div class="dropDownMenuWrapper">
+                  <ul class="dropDownMenu">
+                    <li class="parentMenu"><a href="#">DROP1</a>
+                      <ul>
+                        <li><a href="#">MENU1</a>
+                        <li><a href="#">MENU2</a>
+                        <li><a href="#">MENU3</a>
+                        <li><a href="#">MENU4</a>
+                      </ul>
+                    <li class="parentMenu"><a href="#">DROP2</a>
+                      <ul>
+                        <li><a href="#">MENU1</a>
+                        <li><a href="#">MENU2</a>
+                        <li><a href="#">MENU3</a>
+                        <li><a href="#">MENU4</a>
+                      </ul>
+                    <li class="parentMenu"><a href="#">DROP3</a>
+                      <ul>
+                        <li><a href="#">MENU1</a>
+                        <li><a href="#">MENU2</a>
+                        <li><a href="#">MENU3</a>
+                        <li><a href="#">MENU4</a>
+                      </ul>
+                    <li class="parentMenu"><a href="#">DROP4</a>
+                      <ul>
+                        <li><a href="#">MENU1</a>
+                        <li><a href="#">MENU2</a>
+                        <li><a href="#">MENU3</a>
+                        <li><a href="#">MENU4</a>
+                      </ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">ツールチップ</h3>
+              <div class="basic_contents_item central">
+                <button type="button" class="tooltipBotton" data-toggle="tooltip" data-placement="top" title="TOOLTIP">
+                  TOP
+                </button>
+                <button type="button" class="tooltipBotton" data-toggle="tooltip" data-placement="right" title="TOOLTIP">
+                  RIGHT
+                </button>
+                <button type="button" class="tooltipBotton" data-toggle="tooltip" data-placement="left" title="TOOLTIP">
+                  LEFT
+                </button>
+                <button type="button" class="tooltipBotton" data-toggle="tooltip" data-placement="bottom" title="TOOLTIP">
+                  BOTTOM
+                </button>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 basic_contents">
+              <h3 class="basic_contents_info">マイクロインタラクション</h3>
+              <div class="basic_contents_item central">
+                <div class="shinyBottom">HOVER ME!</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- サブラッパー（ここまで） -->
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>SVGアニメーション</h2>
+            <p>SVG画像にCSSでアニメーションを設定しています。</p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" style="width: 200px; height: 200px; opacity: 1;" xml:space="preserve">
+              <style type="text/css">
+
+                .st0{fill:#4B4B4B;}
+
+              </style>
+              <g>
+                <path class="st0" d="M281.391,68.116c25.688-82.594,81.984-65.922,123.688-68.016C415.469,69.366,326.406,102.726,281.391,68.116z" style="fill: rgb(75, 75, 75);"></path>
+                <path class="st0" d="M269.859,140.71c0,8.297-6.719,12.438-15,12.438l0,0c-8.297,0-15.016-4.141-15.016-12.438V72.116
+                  c0-8.281,6.719-6.438,15.016-6.438l0,0c8.281,0,15-1.844,15,6.438V140.71z" style="fill: rgb(75, 75, 75);"></path>
+                <path class="st0" d="M427.156,139.647c-76.188-55.406-139.125-5.766-171.156-5.766s-94.969-49.641-171.156,5.766
+                  c-62.875,45.703-106.031,235.469,38.625,343.969c63.75,47.797,120.375,20.781,132.531,20.781s68.781,27.016,132.531-20.781
+                  C533.188,375.116,490.031,185.351,427.156,139.647z M122.188,178.085c8.953,0,16.219,7.266,16.219,16.219
+                  s-7.266,16.203-16.219,16.203s-16.219-7.25-16.219-16.203S113.234,178.085,122.188,178.085z M162.75,431.444
+                  c-3.203,3.5-7.594,5.281-11.984,5.281c-3.891,0-7.813-1.391-10.922-4.234c-50.281-45.828-60.484-101.141-60.203-139.469
+                  c0.125-16.469,2.234-32.688,6.234-48.188c2.25-8.672,11.047-13.875,19.75-11.641c8.656,2.234,13.875,11.078,11.641,19.75
+                  c-3.344,12.938-5.094,26.516-5.203,40.328c-0.234,31.719,8.172,77.484,49.625,115.266
+                  C168.313,414.569,168.781,424.819,162.75,431.444z M299.297,176.991c-0.125,0.516-0.266,1.109-0.453,1.656
+                  c-0.719,2.203-1.969,4.375-3.609,6.484c-3.297,4.234-8.297,8.266-14.891,11.422c-6.609,3.172-14.938,5.344-24.344,5.375
+                  c-9.406-0.031-17.734-2.203-24.328-5.375c-6.609-3.156-11.609-7.188-14.891-11.422c-1.656-2.109-2.891-4.281-3.625-6.484
+                  c-0.188-0.547-0.328-1.141-0.453-1.656c-0.094-0.625-0.203-1.234-0.234-1.781c0-1.063,0.125-2.016,0.453-2.813
+                  c1.297-3.297,4.172-3.172,4.984-2.75c0.891,0.422,1.078,1.016,1.484,1.984c0.234,0.484,0.594,1.063,1.156,1.531
+                  c0.516,0.281,1.156,0.813,2.25,1.719c2.172,1.672,5.75,4.172,11.188,6.469c5.406,2.266,12.703,4.484,22.016,4.516
+                  c9.313-0.031,16.625-2.25,22.031-4.516c5.438-2.297,9-4.797,11.188-6.469c1.078-0.906,1.734-1.438,2.234-1.719
+                  c0.563-0.469,0.922-1.047,1.156-1.531c0.422-0.969,0.609-1.563,1.484-1.984c0.813-0.422,3.688-0.547,5,2.75
+                  c0.313,0.797,0.453,1.75,0.438,2.813C299.5,175.757,299.406,176.366,299.297,176.991z" style="fill: rgb(75, 75, 75);"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>パララックス</h2>
+            <p>要素が重なって見えるパララックス効果を実装しています。</p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <div class="parallax_container">
+              <div class="parallax_content img_bg_01">CONTENT1</div>
+              <div class="parallax_content img_bg_02">CONTENT2</div>
+              <div class="parallax_content img_bg_03">CONTENT3</div>
+              <div class="parallax_content img_bg_04">CONTENT4</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>スクロール位置カレント表示</h2>
+            <p>スクロール量に応じてカレント位置を表示させています。</p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <div class="box-container">
+              <div id="box_01" class="box"></div>
+              <div id="box_02" class="box"></div>
+              <div id="box_03" class="box"></div>
+              <div id="box_04" class="box"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>高解像度対応</h2>
+            <p>
+              デバイスピクセル比を基準に、1xでは黒塗りのリンゴの画像、2xでは黒枠で白塗りのリンゴの画像が表示されます。
+            </p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <img class="img"
+            src="https://drive.google.com/uc?export=view&id=1b72HaOAq3118S0EzQJshJ_zWYHCuHZRw"
+            srcset="https://drive.google.com/uc?export=view&id=1b72HaOAq3118S0EzQJshJ_zWYHCuHZRw 1x,
+                    https://drive.google.com/uc?export=view&id=1g-YyGTjd0xblQDPgg42m03vqtiwmJy2s 2x"
+            sizes="50vw"
+            >
+          </div>
+        </div>
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>背景動画</h2>
+            <p>背景に動画を表示させています。</p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <div class="videoWrapper">
+              <p>美女と野獣<br>～魔法のものがたり～</p>
+              <video autoplay muted playsinline loop>
+                <source src="https://drive.google.com/uc?export=view&id=1WpW4LsApaYRKyxVgmm7NoIS238-v9xNW" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- コンテンツ -->
+        <div class="row contents">
+          <div class="col-12 col-sm-6 contents_info">
+            <h2>スクロールスナップ</h2>
+            <p>要素毎に、スクロール位置を固定する挙動を実装しています。</p>
+          </div>
+          <div class="col-12 col-sm-6 contents_item central">
+            <div class="scrollWrapper">
+              <div class="scrollContent img_bg_01">CONTENT1</div>
+              <div class="scrollContent img_bg_02">CONTENT2</div>
+              <div class="scrollContent img_bg_03">CONTENT3</div>
+              <div class="scrollContent img_bg_04">CONTENT4</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- メインラッパー（ここまで） -->
+      </div>
+
+      <footer>
+        <small>Copyright &copy; Sample coding.</small>
+      </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+        <!-- 自作のJS -->
+        <script src="main.js"></script>
+    </body>
+</html>
