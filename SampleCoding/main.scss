@@ -1,0 +1,608 @@
+/* 変数定義 */
+$white: #FFFFFF;
+$black: #000000;
+$lightGray: #EEEEEE;
+$darkGray: #999999;
+$contentColor8: #888888;
+$contentColor7: #777777;
+$contentColor6: #666666;
+$contentColor5: #555555;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.top-wrapper {
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient($lightGray, $darkGray);
+
+  /* タイトルを中央寄せするための指定(親要素) */
+  display: table;
+}
+
+/* タイトルを中央寄せするための指定(子要素) */
+.center {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  h1 {
+    font-size: 15vw;
+    font-weight: bold;
+  }
+  p {
+    font-size: 5vw;
+  }
+}
+
+.main_wrapper {
+  background-color: $lightGray;
+}
+
+/* ウインドウ幅575px以上の時に適用されるスタイル */
+@media (min-width: 575px) {
+
+  .contents {
+    padding: 50px;
+    height: 300px;
+    .contents_info {
+      height: 200px;
+    }
+    .contents_item {
+      height: 200px;
+    }
+  }
+
+  .basic_contents {
+    padding: 10px 50px;
+    height: 300px;
+    .basic_contents_info {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+    }
+    .basic_contents_item {
+      height: 250px;
+    }
+  }
+}
+
+/* ウインドウ幅575px以下の時に適用されるスタイル */
+@media (max-width: 575px) {
+
+  .contents {
+    padding: 10px;
+    height: 420px;
+    .contents_info {
+      height: 100px;
+    }
+    .contents_item {
+      height: 300px;
+    }
+  }
+
+  .basic_contents {
+    padding: 10px 10px;
+    height: 420px;
+    .basic_contents_info {
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+    }
+    .basic_contents_item {
+      height: 250px;
+    }
+  }
+}
+
+.contents {
+  border-bottom: 1px dotted $darkGray;
+}
+
+.basic_contents {
+  border-bottom: 1px dotted $darkGray;
+}
+
+.contents_info {
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.central {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.upper {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  text-align: center;
+}
+
+/*
+ * -------------------------------
+ * 情報取得
+ * -------------------------------
+ */
+ #dog {
+  width: 200px;
+  height: 200px;
+  object-hit: cover;
+}
+
+/*
+ * -------------------------------
+ * 基本コンポーネント
+ * -------------------------------
+ */
+.sub_wrapper {
+  h2 {
+    margin: 30px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .contents {
+    border-bottom: 1px dotted $darkGray;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+// コンテンツの色定義
+.img_bg_01{
+  background-color: $contentColor8;
+  color: $black;
+}
+.img_bg_02{
+  background-color: $contentColor7;
+  color: $black;
+}
+.img_bg_03{
+  background-color: $contentColor6;
+  color: $white;
+}
+.img_bg_04{
+  background-color: $contentColor5;
+  color: $white;
+}
+
+/*
+ * -------------------------------
+ * タブ切り替え
+ * -------------------------------
+ */
+ .tabWrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  .tabLabel {
+    /* タブ4つ分で100%となるように25%指定 */
+    width: 25%;
+    height: 50px;
+    color: black;
+    background-color: #999999;
+    padding: 10px 30px;
+    text-align: center;
+    order: -1;
+  }
+  .tabContent {
+    width: 100%; /* コンテンツは1つずつしか表示しなっため100%指定 */
+    display: none;
+  }
+
+  /* アクティブなタブ（スタイルを変更する） */
+  .tabRadio:checked+.tabLabel {
+    color: white;
+    background-color: #444444;
+  }
+
+  /* アクティブなコンテンツ（表示する） */
+  .tabRadio:checked+.tabLabel+.tabContent {
+    display: block;
+  }
+
+  /* ラジオボタン非表示 */
+  .tabRadio {
+    display: none;
+  }
+}
+
+/*
+ * -------------------------------
+ * アコーディオン
+ * -------------------------------
+ */
+
+.accordionLabel {
+    display: block;
+    padding : 10px 30px;
+    color :white;
+    background-color : #444444;
+}
+
+.accordionContent {
+  height: 0;
+  opacity: 0;
+  transition: .5s;
+  background-color: white;
+  visibility: hidden;
+}
+
+/* アクティブなコンテンツ（表示する） */
+.accordionCheck:checked+.accordionLabel+.accordionContent {
+  height: 50px;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* チェックボックス非表示 */
+.accordionCheck {
+  display: none;
+}
+
+/*
+ * -------------------------------
+ * 横スクロール
+ * -------------------------------
+ */
+ .scroll_container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll_content {
+  display: inline-block;
+  list-style: none;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/*
+ * -------------------------------
+ * モーダルウィンドウ
+ * -------------------------------
+ */
+ #openModal {
+  padding: 10px 30px;
+  color: white;
+  background-color: #444444;
+  cursor: pointer;
+}
+
+.modalArea {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 70%;
+  max-width: 500px;
+  padding: 10px 30px;
+  background-color: #fff;
+}
+
+.closeModal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/*
+ * -------------------------------
+ * スライドメニュー
+ * -------------------------------
+ */
+ #openSlideMenu {
+  padding: 10px 30px;
+  color: white;
+  background-color: #444444;
+  cursor: pointer;
+}
+
+.slideMenuList {
+  display: none;
+  width: 150px;
+  height: 252px;
+  color: white;
+  background-color: #444444;
+  position: absolute;
+  top: 10;
+  left: 0;
+}
+
+.slideMenuList ul {
+  list-style: none;
+}
+
+/*
+ * -------------------------------
+ * ドロップダウンメニュー
+ * -------------------------------
+ */
+ .dropDownMenuWrapper {
+  width: 100%;
+}
+
+.dropDownMenuWrapper ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropDownMenu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+/* 親メニューのみサイズ調整（子メニューは親メニューの100%指定） */
+.parentMenu {
+    width: 25%;
+}
+
+.dropDownMenu li {
+    position: relative;
+}
+
+.dropDownMenu a {
+    display: block;
+    text-decoration: none;
+    background-color: #999999;
+    color: black;
+    padding: 10px 30px;
+}
+
+.dropDownMenu a:hover {
+    background-color: #444444;
+    color: white;
+}
+
+.dropDownMenu li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.dropDownMenu ul li {
+    overflow: hidden;
+    height: 0;
+    transition-duration: 0.5s;
+}
+
+.dropDownMenu li:hover > ul > li {
+    overflow: visible;
+    height: 44px;
+}
+
+/*
+ * -------------------------------
+ * ツールチップ
+ * -------------------------------
+ */
+ .tooltipBotton {
+  width: 100px;
+  height: 50px;
+  margin-bottom: 5px;
+  background-color: #999999;
+  color: black;
+}
+
+/*
+ * -------------------------------
+ * マイクロインタラクション
+ * -------------------------------
+ */
+ .shinyBottom {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  background-color: #444444;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.shinyBottom::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background-image: linear-gradient(130deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 75%);
+}
+
+.shinyBottom:hover::before {
+  -webkit-animation: shine 0.5s;
+          animation: shine 0.5s;
+}
+
+@-webkit-keyframes shine {
+  100% {
+    left: 100%;
+  }
+}
+
+/*
+ * -------------------------------
+ * SVGアニメーション
+ * -------------------------------
+ */
+ .st0 {
+  fill: black;
+  stroke: black;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  stroke-width: 5;
+  animation-name: apple_line;
+  -webkit-animation: apple_line 8s linear 0s infinite;
+  animation: apple_line 8s linear 0s infinite;
+}
+@-webkit-keyframes apple_line {
+0% {
+    stroke-dashoffset: 2000;
+    fill:transparent;
+ }
+40% {
+    stroke-dashoffset: 2000;
+    fill:transparent;
+  }
+80% {
+    fill:transparent;
+  }
+100% {
+    stroke-dashoffset: 0;
+    fill: black;
+   }
+}
+
+/*
+ * -------------------------------
+ * パララックス
+ * -------------------------------
+ */
+ .parallax_container {
+  width: 100%;
+  height: 200px;
+  overflow: scroll;
+}
+
+.parallax_content{
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.img_bg_01{
+  background-color: #888888;
+  color: black;
+}
+.img_bg_02{
+  background-color: #777777;
+  color: black;
+}
+.img_bg_03{
+  background-color: #666666;
+  color: white;
+}
+.img_bg_04{
+  background-color: #555555;
+  color: white;
+}
+
+/*
+ * -------------------------------
+ * スクロール位置カレント表示
+ * -------------------------------
+ */
+ .box {
+  width: 10px;
+  height: 10px;
+  border: solid;
+  margin: 50px 0;
+}
+
+.current {
+  background-color: black;
+}
+
+/*
+ * -------------------------------
+ * 高解像度対応
+ * -------------------------------
+ */
+ .img {
+  width: 200px;
+  height: 200px;
+}
+
+/*
+ * -------------------------------
+ * 背景動画
+ * -------------------------------
+ */
+.videoWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.videoWrapper p {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.videoWrapper video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/*
+ * -------------------------------
+ * スクロールスナップ
+ * -------------------------------
+ */
+.scrollWrapper {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  width: 100%;
+  height: 200px;
+}
+
+.scrollContent {
+  scroll-snap-align: start;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+}
+
+/*
+ * -------------------------------
+ * フッター
+ * -------------------------------
+ */
+ footer {
+  background-color: $darkGray;
+  color: $black;
+  text-align: center;
+}
